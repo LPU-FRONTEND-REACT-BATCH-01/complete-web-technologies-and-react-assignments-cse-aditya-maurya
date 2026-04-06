@@ -1,0 +1,25 @@
+text-decoration
+i) text-decoration-line
+ii)text-decoration-size
+iii)text-decoration-style
+iv)text-decoration-color
+
+
+text-shadow has 4 parameter x offset  y offset  blur radious  color
+
+
+border-radious
+border-top-left-radious
+border-top-right-radious
+border-bottom-left-radious
+border-bottom-right-radious
+
+
+
+1 value  -> all side
+2 value   -> top left bottom right,top right bottom left
+3 value  -> top left,top right bottom left,bottom right
+4 value  ->   top left, top right, bottom right, bottom left
+
+
+
