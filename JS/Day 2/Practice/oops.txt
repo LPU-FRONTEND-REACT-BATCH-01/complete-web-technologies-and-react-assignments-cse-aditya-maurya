@@ -1,0 +1,217 @@
+JAVASCRIPT OBJECTS - ALL IMPORTANT POINTS (PRACTICAL)
+
+1. CREATE OBJECT
+   Definition:
+   Object stores data in key-value pairs.
+
+Example:
+let student = {
+name: "Rohan",
+age: 20,
+marks: 99
+};
+
+---
+
+2. ACCESS VALUES
+   A) Dot notation
+   student.name
+   student.age
+
+B) Bracket notation
+student["marks"]
+
+---
+
+3. ADD PROPERTY
+   Definition:
+   New properties can be added dynamically.
+
+Example:
+student.city = "Delhi";
+
+---
+
+4. UPDATE PROPERTY
+   Definition:
+   Existing property value can be changed.
+
+Example:
+student.age = 21;
+
+---
+
+5. DELETE PROPERTY
+   Definition:
+   Removes a property from object.
+
+Example:
+delete student.city;
+
+---
+
+6. OBJECT.KEYS()
+   Definition:
+   Returns all keys in array format.
+
+Example:
+let keys = Object.keys(student);
+
+Output:
+["name", "age", "marks"]
+
+---
+
+7. OBJECT.VALUES()
+   Definition:
+   Returns all values in array format.
+
+Example:
+let values = Object.values(student);
+
+Output:
+["Rohan", 20, 99]
+
+---
+
+8. OBJECT.ENTRIES()
+   Definition:
+   Returns key-value pairs in nested array format.
+
+Example:
+let entries = Object.entries(student);
+
+Output:
+[
+["name", "Rohan"],
+["age", 20],
+["marks", 99]
+]
+
+---
+
+9. CHECK PROPERTY EXISTS
+   Definition:
+   Checks whether property exists or not.
+
+Example:
+console.log("name" in student);
+
+Output:
+true
+
+---
+
+10. HASOWNPROPERTY()
+    Definition:
+    Checks if object has specific own property.
+
+Example:
+student.hasOwnProperty("age");
+
+---
+
+11. OBJECT.FREEZE()
+    Definition:
+    Makes object immutable.
+    Cannot add, delete, or update properties.
+
+Example:
+Object.freeze(student);
+
+---
+
+12. OBJECT.SEAL()
+    Definition:
+    Cannot add or delete properties.
+    Can update existing properties.
+
+Example:
+Object.seal(student);
+
+---
+
+13. LOOP THROUGH OBJECT
+    Definition:
+    Use for...in loop to access keys.
+
+Example:
+for(let key in student){
+console.log(key, student[key]);
+}
+
+---
+
+14. COPY OBJECT
+    Definition:
+    Creates shallow copy.
+
+Example:
+let copy = {...student};
+
+OR
+
+let copy = Object.assign({}, student);
+
+---
+
+15. MERGE OBJECTS
+    Definition:
+    Combines multiple objects.
+
+Example:
+let obj1 = {a:1};
+let obj2 = {b:2};
+
+let merged = {...obj1, ...obj2};
+
+---
+
+16. OPTIONAL CHAINING
+    Definition:
+    Safely access nested properties.
+
+Example:
+console.log(student.address?.city);
+
+---
+
+17. DESTRUCTURING
+    Definition:
+    Extract values into variables.
+
+Example:
+let {name, age} = student;
+
+---
+
+18. JSON CONVERSION
+    Definition:
+    Convert object to string and back.
+
+Example:
+let str = JSON.stringify(student);
+let obj = JSON.parse(str);
+
+---
+
+MOST IMPORTANT INTERVIEW METHODS
+Object.keys()
+Object.values()
+Object.entries()
+Object.freeze()
+Object.seal()
+hasOwnProperty()
+delete
+for...in
+spread operator (...)
+
+---
+
+REAL INTERVIEW ONE-LINE DEFINITIONS
+Object = Collection of key-value pairs
+Freeze = Completely lock object
+Seal = Partial lock object
+Keys = Returns property names
+Values = Returns property values
+Entries = Returns key-value pairs

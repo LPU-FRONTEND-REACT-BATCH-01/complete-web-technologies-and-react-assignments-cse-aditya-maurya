@@ -1,122 +1,107 @@
-FUNCTION IN JAVASCRIPT - SHORT NOTES
+JAVASCRIPT MAIN FUNCTION TYPES - SHORT NOTES
 
-Definition:
-A function is a reusable block of code used to perform a specific task.
-It helps avoid writing the same code again and again.
-
-Syntax:
-function functionName() {
-    // code
-}
-
+1) Function Declaration
+A normal named function created using the function keyword.
 Example:
 function greet() {
-    console.log("Hello");
+  console.log("Hello");
 }
-greet();
+Note: Hoisted, so it can be called before definition.
 
-Function with Parameters:
-function add(a, b) {
-    console.log(a + b);
-}
-add(10, 20);
-
-Here:
-a, b -> Parameters
-10, 20 -> Arguments
-
-Function with Return:
-function square(n) {
-    return n * n;
-}
-console.log(square(5));
-
-Output:
-25
-
-Types of Functions:
-1. Normal Function
-   function demo() {}
-
-2. Function Expression
-   let demo = function() {};
-
-3. Arrow Function
-   let demo = () => {};
-
-Advantages:
-- Reusable
-- Clean code
-- Less repetition
-- Easy debugging
-
-One-line Definition:
-A function is a reusable block of code that performs a specific task. 
-
-
-
-
-
-
-HIGHER ORDER FUNCTION IN JAVASCRIPT - SHORT NOTES
-
-Definition:
-A higher order function is a function that:
-1. takes another function as an argument
-OR
-2. returns a function
-
-In simple words:
-A function working with another function is called a higher order function.
-
-Syntax:
-function higherOrder(callback) {
-    callback();
-}
-
+2) Function Expression
+A function stored inside a variable.
 Example:
-function greet() {
-    console.log("Hello");
+const greet = function() {
+  console.log("Hello");
 }
+Note: Useful when assigning functions to variables.
 
-function processUser(callback) {
-    callback();
+3) Arrow Function
+A shorter syntax introduced in ES6.
+Example:
+const greet = () => {
+  console.log("Hello");
 }
+Note: Best for short functions and callbacks.
 
-processUser(greet);
+4) Anonymous Function
+A function without a name.
+Example:
+setTimeout(function() {
+  console.log("Hi");
+}, 1000);
+Note: Mostly used as callback functions.
 
-Here:
-- processUser = Higher order function
-- greet = Callback function
+5) Named Function Expression
+A function expression with its own internal name.
+Example:
+const greet = function sayHello() {
+  console.log("Hello");
+}
+Note: Helpful in debugging.
 
-Example with return:
+6) IIFE (Immediately Invoked Function Expression)
+A function that runs immediately after being created.
+Example:
+(function() {
+  console.log("Runs instantly");
+})();
+Note: Used for private scope.
+
+7) Callback Function
+A function passed as an argument to another function.
+Example:
+function process(callback) {
+  callback();
+}
+Note: Common in asynchronous programming.
+
+8) Higher-Order Function
+A function that accepts another function or returns one.
+Example:
 function outer() {
-    return function inner() {
-        console.log("Inside inner");
-    };
+  return function inner() {};
 }
+Note: Used in map, filter, reduce.
 
-let result = outer();
-result();
-
-Common Higher Order Functions:
-- map()
-- filter()
-- reduce()
-- forEach() 
-
+9) Constructor Function
+A function used to create objects with new.
 Example:
-let arr = [1, 2, 3];
+function Person(name) {
+  this.name = name;
+}
+Note: Used in old-style object creation.
 
-arr.map(function(num) {
-    return num * 2;
-});
+10) Generator Function
+A function that can pause and resume using yield.
+Example:
+function* gen() {
+  yield 1;
+}
+Note: Useful for iterators.
 
-Advantages:
-- reusable code
-- clean code
-- functional programming
-- easy array operations
+11) Async Function
+A function that works with promises using async/await.
+Example:
+async function load() {
+  return "Done";
+}
+Note: Best for API calls and async tasks.
 
-One-line Definition:
-A function that accepts another function or returns a function is called a higher order function.
+12) Recursive Function
+A function that calls itself.
+Example:
+function fact(n) {
+  return n === 1 ? 1 : n * fact(n - 1);
+}
+Note: Used in factorial, tree traversal.
+
+13) Method Function
+A function inside an object.
+Example:
+const user = {
+  greet() {
+    console.log("Hello");
+  }
+}
+Note: Used as object behavior.
