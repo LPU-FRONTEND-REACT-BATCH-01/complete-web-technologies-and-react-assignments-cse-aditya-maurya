@@ -1,20 +1,21 @@
 function price(amount) {
     let total;
+    let message;
 
     if (amount >= 6000) {
-        console.log("DISCOUNT OF 25% APPLIED", "price is "+amount);
-        total=amount*0.75;
+        message = "DISCOUNT OF 25% APPLIED";
+        total = amount * 0.75;
     } 
     else if (amount >= 2000) {
-        console.log("DISCOUNT OF 15% APPLIED", "price is "+amount);
-        total=amount*0.85;
+        message = "DISCOUNT OF 15% APPLIED";
+        total = amount * 0.85;
     } 
     else {
-        console.log("NO DISCOUNT", "price is "+amount);
-        total=amount;
+        message = "NO DISCOUNT";
+        total = amount;
     }
+    return '' + message + '\nTotal price: ' + total;
 
-    console.log("Total price is "+total);
 }
 
-price(2100);
+console.log(price(2100));
