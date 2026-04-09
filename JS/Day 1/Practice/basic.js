@@ -28,10 +28,26 @@
 
 
 
-var y;
-console.log(typeof y);
+// var y;
+// console.log(typeof y);
 
 
+
+
+
+
+
+
+
+// console.log(x); // undefined
+// var x = 10;
 // let value = 10;
 // value = "JS";
 // console.log(typeof value);
+
+
+
+
+
+
+
