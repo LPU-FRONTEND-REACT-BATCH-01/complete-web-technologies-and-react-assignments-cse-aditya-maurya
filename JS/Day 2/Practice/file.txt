@@ -1,0 +1,122 @@
+FUNCTION IN JAVASCRIPT - SHORT NOTES
+
+Definition:
+A function is a reusable block of code used to perform a specific task.
+It helps avoid writing the same code again and again.
+
+Syntax:
+function functionName() {
+    // code
+}
+
+Example:
+function greet() {
+    console.log("Hello");
+}
+greet();
+
+Function with Parameters:
+function add(a, b) {
+    console.log(a + b);
+}
+add(10, 20);
+
+Here:
+a, b -> Parameters
+10, 20 -> Arguments
+
+Function with Return:
+function square(n) {
+    return n * n;
+}
+console.log(square(5));
+
+Output:
+25
+
+Types of Functions:
+1. Normal Function
+   function demo() {}
+
+2. Function Expression
+   let demo = function() {};
+
+3. Arrow Function
+   let demo = () => {};
+
+Advantages:
+- Reusable
+- Clean code
+- Less repetition
+- Easy debugging
+
+One-line Definition:
+A function is a reusable block of code that performs a specific task. 
+
+
+
+
+
+
+HIGHER ORDER FUNCTION IN JAVASCRIPT - SHORT NOTES
+
+Definition:
+A higher order function is a function that:
+1. takes another function as an argument
+OR
+2. returns a function
+
+In simple words:
+A function working with another function is called a higher order function.
+
+Syntax:
+function higherOrder(callback) {
+    callback();
+}
+
+Example:
+function greet() {
+    console.log("Hello");
+}
+
+function processUser(callback) {
+    callback();
+}
+
+processUser(greet);
+
+Here:
+- processUser = Higher order function
+- greet = Callback function
+
+Example with return:
+function outer() {
+    return function inner() {
+        console.log("Inside inner");
+    };
+}
+
+let result = outer();
+result();
+
+Common Higher Order Functions:
+- map()
+- filter()
+- reduce()
+- forEach() 
+
+Example:
+let arr = [1, 2, 3];
+
+arr.map(function(num) {
+    return num * 2;
+});
+
+Advantages:
+- reusable code
+- clean code
+- functional programming
+- easy array operations
+
+One-line Definition:
+A function that accepts another function or returns a function is called a higher order function.
