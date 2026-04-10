@@ -63,16 +63,51 @@
 
 
 
-let cartData={
-    items:[
-        {name:"Shirt", price:500},
-        {name:"Pants", price:1000},
-        {name:"Shoes", price:2000}
-    ]
-}
+// let cartData={
+//     items:[
+//         {name:"Shirt", price:500,quantity:2},
+//         {name:"Pants", price:1000,quantity:1},
+//         {name:"Shoes", price:2000,quantity:3}
+//     ]
+// }
 
-let totalPrice=cartData.items.reduce((total,item)=>{
-    return total + item.price;
-},0);
+// let totalPrice=cartData.items.reduce((total,item)=>{
+//     return total + item.price*item.quantity;
+// },0);
 
-console.log("Total Price:", totalPrice);
+// console.log("Total Price:", totalPrice);
+
+
+
+
+
+// let arr=["Nick" ,"John" ,"Alice" ,"Bob"];
+
+// arr.forEach((value,index)=>{
+//     console.log("Hello "+value);
+// });
+
+
+
+
+// let arr=[1,2,3,4,5,6]
+
+// let filter_value=arr.filter((value,index)=>{
+
+//     return value%2===0;
+// }) ;      
+// console.log(filter_value); 
+
+
+
+
+let arr=[91,12,32,14,51,6];
+arr.sort((a,b)=>{
+    return a-b;
+});
+console.log(arr);
+
+
+
+
+
