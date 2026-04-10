@@ -101,11 +101,19 @@
 
 
 
-let arr=[91,12,32,14,51,6];
-arr.sort((a,b)=>{
-    return a-b;
-});
-console.log(arr);
+// let arr=[91,12,32,14,51,6];
+// arr.sort((a,b)=>{
+//     return a-b;
+// });
+// console.log(arr);
+
+
+
+
+
+
+
+
 
 
 
