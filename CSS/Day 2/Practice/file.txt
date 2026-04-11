@@ -1,14 +1,14 @@
 text-decoration
-i) text-decoration-line
-ii)text-decoration-size
-iii)text-decoration-style
-iv)text-decoration-color
+i) text-decoration-line  -> underlines,overline,line-through
+ii)text-decoration-size  -> px,em,rem
+iii)text-decoration-style -> solid,dotted,wavy,dashed
+iv)text-decoration-color   -> 
 
 
 text-shadow has 4 parameter x offset  y offset  blur radious  color
 
 
-border-radious
+border-radius
 border-top-left-radious
 border-top-right-radious
 border-bottom-left-radious
@@ -20,6 +20,212 @@ border-bottom-right-radious
 2 value   -> top left bottom right,top right bottom left
 3 value  -> top left,top right bottom left,bottom right
 4 value  ->   top left, top right, bottom right, bottom left
+
+
+============================================================
+CSS UNITS 
+=====================
+
+1. ABSOLUTE UNITS
+
+---
+
+These are fixed units.
+
+## px  -> pixels
+
+Most used unit
+Fixed exact size
+
+Example:
+width: 100px;
+
+## cm  -> centimeter
+
+Real-world cm size
+Rarely used in screen design
+
+Example:
+width: 5cm;
+
+## mm  -> millimeter
+
+1cm = 10mm
+
+Example:
+width: 20mm;
+
+## in  -> inch
+
+1in = 96px
+
+Example:
+width: 2in;
+
+## pt  -> points
+
+Mostly used in print / PDF
+1pt = 1/72 inch
+
+Example:
+font-size: 12pt;
+
+## pc  -> pica
+
+1pc = 12pt
+
+Example:
+font-size: 2pc;
+
+============================================================
+2) RELATIVE UNITS
+=================
+
+These depend on parent, root, viewport, or font.
+
+## em
+
+Relative to current element font-size
+
+Example:
+font-size: 2em;
+
+If parent = 16px
+2em = 32px
+
+## rem
+
+Relative to root html font-size
+
+Example:
+font-size: 2rem;
+
+If html = 16px
+2rem = 32px
+
+## %
+
+Relative to parent size
+
+Example:
+width: 50%;
+
+Means half of parent
+
+## vw
+
+Viewport width
+1vw = 1% of screen width
+
+Example:
+width: 50vw;
+
+## vh
+
+Viewport height
+1vh = 1% of screen height
+
+Example:
+height: 100vh;
+
+## vmin
+
+Smaller of vw or vh
+
+Example:
+font-size: 5vmin;
+
+## vmax
+
+Larger of vw or vh
+
+Example:
+font-size: 5vmax;
+
+## ch
+
+Width of "0" character
+
+Best for text input width
+
+Example:
+width: 20ch;
+
+## ex
+
+Height of x letter
+
+Rarely used
+
+Example:
+line-height: 2ex;
+
+============================================================
+3) BEST USE CASES
+=================
+
+## px
+
+exact fixed size
+
+## em
+
+button padding, text relative scaling
+
+## rem
+
+full responsive design system
+
+## %
+
+layouts and responsive widths
+
+## vw / vh
+
+full screen sections
+
+## cm / mm / in
+
+print design only
+
+============================================================
+4) MOST USED IN REAL PROJECTS
+=============================
+
+## Most common:
+
+px
+rem
+%
+vh
+vw
+em
+
+============================================================
+5) INTERVIEW QUICK DIFFERENCE
+=============================
+
+px   -> fixed
+em   -> current font-size
+rem  -> root font-size
+%    -> parent size
+vw   -> screen width
+vh   -> screen height
+
+============================================================
+QUICK MEMORY
+============
+
+Absolute:
+px cm mm in pt pc
+
+Relative:
+em rem % vw vh vmin vmax ch ex
+
+============================================================
+END
+===
+
 
 
 Named Colors – Predefined color names like red, blue, green.
