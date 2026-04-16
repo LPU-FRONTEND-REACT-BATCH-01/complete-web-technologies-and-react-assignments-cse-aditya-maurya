@@ -50,7 +50,9 @@
 
 
 
-
+let a=4;
+a="hello";
+console.log(a);
 
 
 
