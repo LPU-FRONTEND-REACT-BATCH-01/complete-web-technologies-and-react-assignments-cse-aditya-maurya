@@ -1,0 +1,140 @@
+REACT – DETAILED SHORT NOTES
+
+1. REACT
+
+* React is a JavaScript library used to build interactive user interfaces, especially for web applications.
+* It allows developers to create reusable UI components.
+* Developed by Meta (Facebook).
+* Main goal: make UI development fast, scalable, and manageable.
+
+---
+
+2. COMPONENTS
+
+* Components are independent, reusable pieces of UI.
+* Each component returns JSX (HTML-like code).
+
+Types:
+a) Class Components:
+
+* Older way of writing components using ES6 classes.
+* Uses "this" keyword and lifecycle methods.
+
+b) Function Components:
+
+* Modern and preferred way.
+* Simple JavaScript functions.
+* Use Hooks (like useState) for features.
+
+---
+
+3. DECLARATIVE NATURE
+
+* React follows a declarative approach.
+* You describe what the UI should look like for a given state.
+* React automatically updates the UI when data changes.
+
+Example idea:
+
+* If count = 1 → show "1"
+* If count = 2 → show "2"
+  (No manual DOM updates needed)
+
+---
+
+4. VIRTUAL DOM
+
+* Virtual DOM is a lightweight copy of the real DOM stored in memory.
+
+* When state or props change:
+
+  1. React creates a new Virtual DOM
+  2. Compares it with the previous one (diffing)
+  3. Updates only the changed elements in the real DOM
+
+* This makes updates faster and more efficient.
+
+---
+
+5. PROPS
+
+* Props (properties) are used to pass data from parent to child components.
+* They are read-only and cannot be modified inside the child.
+
+Example: <Greeting name="Adi" />
+
+function Greeting(props) {
+return <h1>Hello {props.name}</h1>;
+}
+
+Types / Usage:
+
+* Normal props → basic data passing
+* Default props → used when no value is provided
+* Children props → content inside component tags
+* Function props → passing functions (event handling)
+* Boolean props → true/false values
+* Spread props → passing multiple values using ...
+
+---
+
+6. STATE
+
+* State is a built-in object that stores data inside a component.
+* It is mutable (can change over time).
+* When state changes, React automatically re-renders the component.
+
+Example:
+const [count, setCount] = useState(0);
+
+* "count" = current value
+* "setCount" = function to update value
+
+---
+
+7. PROPS vs STATE
+
+Props:
+
+* Passed from parent component
+* Immutable (read-only)
+* Used for communication between components
+
+State:
+
+* Managed within the component
+* Mutable (can change)
+* Used for dynamic and interactive data
+
+---
+
+8. MODULE BUNDLER
+
+* A module bundler is a tool that combines multiple files (JS, CSS, images) into a single or optimized bundle.
+* Helps browsers load applications efficiently.
+
+Example:
+
+* Webpack
+
+---
+
+9. HOOKS (BASIC)
+
+useState():
+
+* Used to add and manage state in function components.
+
+useEffect():
+
+* Used to handle side effects like API calls, timers, or DOM updates.
+
+---
+
+FINAL SUMMARY
+
+* React builds UI using components
+* Props pass data between components
+* State manages changing data
+* Virtual DOM improves performance
+* Declarative approach simplifies UI updates
