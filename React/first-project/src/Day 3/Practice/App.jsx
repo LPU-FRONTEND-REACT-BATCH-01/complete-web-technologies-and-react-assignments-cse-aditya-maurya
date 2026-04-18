@@ -103,32 +103,124 @@
 
 
 
-
-
 import React, { useState } from "react";
 
 const App = () => {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState({ skills: [] });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
+    if (type === "checkbox") {
+      setFormData((prev) => {
+        const skills = prev.skills || [];
+
+        if (checked) {
+          return { ...prev, skills: [...skills, value] };
+        } else {
+          return {
+            ...prev,
+            skills: skills.filter((skill) => skill !== value),
+          };
+        }
+      });
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
+
+  const formValidation= {
+    uppercase:/[A-Z]/.test(formData.password),
+    lowercase:/[a-z]/.test(formData.password),
+    number:/[0-9]/.test(formData.password),
+  lengthOfPassword: (formData.password || "").length >= 8
+  
+  
+  }
+
+
+  let strength = "Weak";
+  const length = (formData.password || "").length;
+
+  if (length < 2) {
+    strength = "Weak";
+  } else if (length < 5) {
+    strength = "Medium";
+  } else {
+    strength = "Strong";
+  }
+  console.log(formValidation)
+
+
+  let handleSubmit = (e)=> {
+    e.preventDefault()
+     console.log(from)
+  }
 
   return (
     <div>
-      <form>
-        UserName: <input type="text" name="username" onChange={handleChange} />
-        <br />
+      <form action="submit">
+        UserName:
+        <input type="text" name="username" onChange={handleChange} />
+        <br /><br />
 
-      Password: <input type="password" name="password" onChange={handleChange} />
+        Password:
+        <input type="password" name="password" onChange={handleChange} />
+        <br /><br />
+        
+
+     
+
+       <ul>
+  <li style={{ color: formValidation.uppercase ? "green" : "red" }}>
+    it contains at least one Uppercase
+  </li>
+
+  <li style={{ color: formValidation.lowercase ? "green" : "red" }}>
+    it contains at least one lowerCase
+  </li>
+
+  <li style={{ color: formValidation.number ? "green" : "red" }}>
+    it contains at least one number
+  </li>
+
+  <li style={{ color: formValidation.lengthOfPassword ? "green" : "red" }}>
+    Length atleast 8
+  </li>
+</ul>
+
+
+        {/* <p>
+          Password Strength:{" "}
+          <span
+            style={{
+              color:
+                strength === "Strong"
+                  ? "green"
+                  : strength === "Medium"
+                  ? "orange"
+                  : "red",
+            }}
+          >
+            {strength}
+          </span>
+        </p> */}
+        Gender:
+        <input type="radio" name="gender" value="Male" onChange={handleChange} /> Male
+        <input type="radio" name="gender" value="Female" onChange={handleChange} /> Female
+        <br /><br />
+
+        Skills:
+        <input type="checkbox" name="skills" value="HTML" onChange={handleChange} /> HTML
+        <input type="checkbox" name="skills" value="CSS" onChange={handleChange} /> CSS
+        <input type="checkbox" name="skills" value="JavaScript" onChange={handleChange} /> JavaScript
       </form>
 
-   
+        {length >= 8 && <button type="submit">Submit</button>}
+
     </div>
   );
 };
