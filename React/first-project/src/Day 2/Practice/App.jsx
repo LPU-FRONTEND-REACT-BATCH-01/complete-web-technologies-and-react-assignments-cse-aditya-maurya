@@ -196,20 +196,30 @@
 
 
 
-import react, {useState} from 'react'
+import React, { useState, useEffect } from 'react';
 
-const App =() =>{
-  const[state,setState]=useState(0);
-  const [count,setCount]=useState(0);
-  const [count1,]
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [count1, setCount1] = useState(0);
+
   useEffect(() => {
     console.log("Component render");
-  }); 
+  });
 
+  return (
+    <div>
+      <h2>Count: {count}</h2>
+      <button onClick={() => setCount(count + 1)}>
+        Increase Count
+      </button>
 
+      <h2>Count1: {count1}</h2>
+      <button onClick={() => setCount1(count1 + 1)}>
+        Increase Count1
+      </button>
+    </div>
+  );
+};
 
+export default App;
 
-
-}
-
-export default App
