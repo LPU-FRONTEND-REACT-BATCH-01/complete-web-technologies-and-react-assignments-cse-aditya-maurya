@@ -8,7 +8,7 @@ function App() {
   ];
 
   const [index, setIndex] = useState(0);
-
+  
   const next = () => {
     if (index === images.length - 1) {
       setIndex(0);

@@ -26,7 +26,8 @@
 
 import {createRoot} from "react-dom/client"
 // import App from './Day 2/Practice/App.jsx'
-import App from './Day 3/Assignment/App.jsx'
+// import App from './Day 3/Assignment/App.jsx'
+import App from './Day 3/Practice/App.jsx'
 import "./index.css"
 createRoot(document.getElementById("root")).render(
     <App></App>
