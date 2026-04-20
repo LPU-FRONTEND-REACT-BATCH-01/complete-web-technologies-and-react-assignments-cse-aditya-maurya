@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flex + Position</title>
+
+<style>
+body {
+    height: 1500px;
+}
+
+/* CONTAINER */
+.container {
+    width: 600px;
+    height: 300px;
+    background-color: bisque;
+    position: relative;
+    display: flex;
+}
+
+/* COMMON ITEM STYLE */
+.item {
+    height: 100px;
+    margin: 10px;
+    border: 5px solid black;
+    border-radius: 20px;
+    background-color: rgb(255,125,225);
+}
+
+/* 1. RELATIVE */
+.items1 {
+    position: relative;
+    left: 20px;
+
+    flex-grow: 1;     /* grows normally */
+    flex-shrink: 1;   /* can shrink */
+    flex-basis: 100px; /* starting size */
+}
+
+.items2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    flex-grow: 2;  
+}
+
+.items3 {
+    position: sticky;
+    top: 0;
+
+    flex-grow: 1;
+    flex-shrink: 2;  
+    flex-basis: 150px;
+}
+
+.items4 {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: red;
+    color: white;
+
+    flex: 0 0 100px; 
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <div class="items1 item">Item 1</div>
+    <div class="items2 item">Item 2</div>
+    <div class="items3 item">Item 3</div>
+</div>
+
+<div class="items4 item">Fixed</div>
+
+</body>
+</html>

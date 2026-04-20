@@ -1,0 +1,232 @@
+==============================
+📘 JavaScript Data Types
+==============================
+
+✅ What is Data Type?
+
+A data type tells JavaScript what kind of value is stored inside a variable.
+
+Example:
+let name = "Adi";
+let age = 25;
+
+Here:
+"Adi" → string
+25 → number
+
+So, data type means the type of data stored in memory.
+
+
+==============================
+🔹 Types of Data Types
+==============================
+
+JavaScript has 2 categories of data types:
+
+1) Primitive Data Types
+2) Non-Primitive (Reference) Data Types
+
+
+==============================
+🔥 1) Primitive Data Types
+==============================
+
+Primitive types store single simple values.
+
+JavaScript has 7 primitive data types:
+
+1. String
+   Stores text values.
+
+   Example:
+   let name = "Adi";
+   let city = 'Delhi';
+   let msg = `Hello`;
+
+   typeof name; // string
+
+
+2. Number
+   Stores integers and decimal numbers.
+
+   Example:
+   let age = 25;
+   let price = 99.99;
+
+   typeof age; // number
+
+
+3. Boolean
+   Stores only true or false.
+
+   Example:
+   let isLoggedIn = true;
+   let isAdmin = false;
+
+   typeof isLoggedIn; // boolean
+
+
+4. Undefined
+   A variable is declared but no value is assigned.
+
+   Example:
+   let score;
+   console.log(score); // undefined
+
+   typeof score; // undefined
+
+
+5. Null
+   Represents an intentional empty value.
+
+   Example:
+   let selectedUser = null;
+
+   Important:
+   typeof null; // object
+
+   Note:
+   This is a historical JavaScript bug and a common interview question.
+
+
+6. BigInt
+   Used for very large numbers.
+
+   Example:
+   let big = 12345678901234567890n;
+
+   typeof big; // bigint
+
+
+7. Symbol
+   Used to create unique values.
+
+   Example:
+   let id = Symbol("id");
+
+   typeof id; // symbol
+
+
+==============================
+🚀 2) Non-Primitive (Reference Types)
+==============================
+
+Used for complex data.
+
+Main types include:
+
+1. Object
+   Example:
+   let user = {
+     name: "Adi",
+     age: 25
+   };
+
+2. Array
+   Example:
+   let nums = [1, 2, 3];
+
+3. Function
+   Example:
+   function greet() {
+     console.log("Hello");
+   }
+
+
+==============================
+🔍 typeof Operator
+==============================
+
+Used to check the type of a variable.
+
+Example:
+let age = 25;
+console.log(typeof age); // number
+
+More examples:
+typeof "Hello";    // string
+typeof true;       // boolean
+typeof undefined;  // undefined
+typeof null;       // object
+
+
+==============================
+⚡ Dynamic Typing
+==============================
+
+JavaScript is dynamically typed.
+
+This means the same variable can store different data types later.
+
+Example:
+let value = 10;
+value = "Hello";
+value = true;
+
+All are valid ✅
+
+This makes JavaScript flexible.
+
+
+==============================
+🎯 null vs undefined
+==============================
+
+This is very important.
+
+1) undefined
+   JavaScript automatically gives it when no value is assigned.
+
+   Example:
+   let x;
+   console.log(x); // undefined
+
+
+2) null
+   Developer intentionally sets an empty value.
+
+   Example:
+   let user = null;
+
+
+✅ Difference:
+undefined = automatic empty
+null = intentional empty
+
+
+==============================
+🧠 Memory Basics
+==============================
+
+Primitive Data Types:
+Store actual value directly.
+
+Example:
+name → "Adi"
+age  → 25
+
+
+Reference Data Types:
+Store memory address.
+
+Example:
+user → address → { name: "Adi" }
+
+
+==============================
+💼 Important Interview Questions
+==============================
+
+Q1. How many primitive data types are in JavaScript?
+Answer: 7
+
+Q2. Why does typeof null return object?
+Answer: Because of a historical JavaScript bug.
+
+Q3. What is dynamic typing?
+Answer: The same variable can store different data types.
+
+Q4. Difference between primitive and reference?
+Answer:
+Primitive → stores direct value
+Reference → stores memory address

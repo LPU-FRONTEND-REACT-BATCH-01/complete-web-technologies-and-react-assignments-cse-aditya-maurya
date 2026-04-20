@@ -1,0 +1,744 @@
+================================================================================
+                    CSS SELECTORS COMPLETE NOTES 
+                    WITH PROPER DEFINITIONS FOR EACH SELECTOR
+================================================================================
+
+
+1. BASIC SELECTORS
+================================================================================
+
+1) Element Selector (Type Selector)
+------------------------------------
+DEFINITION: An element selector targets HTML elements by their tag name. It selects
+all instances of a specific HTML element on the page.
+
+Syntax: tagname { property: value; }
+
+Example:
+h1 {
+    color: red;
+}
+
+Explanation: This selects every <h1> element in the HTML document and turns the
+text color to red.
+
+When to use: When you want to style all elements of a particular type uniformly.
+
+
+2) Class Selector
+-----------------
+DEFINITION: A class selector targets elements that have a specific class attribute.
+Multiple elements can share the same class, and one element can have multiple classes.
+It is the most commonly used selector for styling.
+
+Syntax: .classname { property: value; }
+
+Example:
+.title {
+    color: blue;
+}
+
+Explanation: This selects any element with class="title" (like <h1 class="title">
+or <p class="title">) and makes the text color blue.
+
+When to use: For reusable styles that need to be applied to multiple different
+elements across the page.
+
+
+3) ID Selector
+--------------
+DEFINITION: An ID selector targets a unique element with a specific id attribute.
+An ID must be unique within a page - no two elements can have the same ID.
+It has the highest specificity among basic selectors.
+
+Syntax: #idname { property: value; }
+
+Example:
+#header {
+    color: green;
+}
+
+Explanation: This selects the single element with id="header" (like <div id="header">)
+and makes its text color green.
+
+When to use: For unique page sections like header, footer, sidebar, or when
+JavaScript needs to hook into a specific element.
+
+
+4) Universal Selector
+---------------------
+DEFINITION: The universal selector targets EVERY element on the page. It matches
+all HTML elements, including body, divs, spans, paragraphs, headings, etc.
+Use with caution as it can affect performance on large pages.
+
+Syntax: * { property: value; }
+
+Example:
+* {
+    margin: 0;
+    padding: 0;
+}
+
+Explanation: This removes default margin and padding from absolutely every element
+on the page, providing a clean starting point for layout.
+
+When to use: For CSS resets, or when you want to apply a style to literally
+everything on the page.
+
+
+================================================================================
+2. COMBINATOR SELECTORS
+================================================================================
+
+A) Descendant Selector (Space)
+-------------------------------
+DEFINITION: The descendant selector selects all elements that are descendants
+(children, grandchildren, great-grandchildren, etc.) of a specified parent element.
+It uses a space between selectors and matches elements at ANY nesting depth.
+
+Syntax: parent descendant { property: value; }
+
+Example:
+ul li {
+    color: red;
+}
+
+Explanation: This selects EVERY <li> element that is inside ANY <ul> element,
+regardless of how deeply nested it is (even if there are other elements in between).
+
+When to use: When you want to style all nested elements of a particular type
+within a container, regardless of nesting depth.
+
+
+B) Child Selector (>)
+---------------------
+DEFINITION: The child selector selects elements that are DIRECT children of a
+specified parent element. It does NOT select grandchildren or deeper descendants.
+The > symbol means "directly inside".
+
+Syntax: parent > child { property: value; }
+
+Example:
+ul > li {
+    color: blue;
+}
+
+Explanation: This selects ONLY <li> elements that are immediate children of a
+<ul> element. If an <li> is inside a <div> that is inside the <ul>, it will NOT
+be selected.
+
+When to use: When you only want to style direct children and avoid styling
+deeply nested elements of the same type.
+
+
+C) Adjacent Sibling Selector (+)
+--------------------------------
+DEFINITION: The adjacent sibling selector selects an element that comes IMMEDIATELY
+AFTER another specific element. Both elements must share the same parent. The
++ symbol means "next to" or "immediately followed by".
+* It selects the immediate next sibling element.
+Syntax: element + sibling { property: value; }
+
+Example:
+li.first + li {
+    color: red;
+}
+
+Explanation: This selects an <li> element that comes directly after an <li> with
+class="first". They must be siblings (same parent) with no other element in between.
+
+HTML Example:
+<li class="first">Rice</li>
+<li>Chicken</li>    <!-- This gets selected -->
+<li>Masala</li>     <!-- This does NOT get selected -->
+
+When to use: For styling elements that directly follow a specific element,
+like adding separators between list items or styling the first item differently.
+
+
+D) General Sibling Selector (~)
+-------------------------------
+DEFINITION: The general sibling selector selects ALL elements that come AFTER
+a specified element and share the same parent. Unlike the adjacent selector,
+it selects ALL following siblings, not just the immediate next one.
+* General sibling selector (~) selects all matching sibling elements that 
+  come after the first element and share the same parent.
+Syntax: element ~ siblings { property: value; }
+
+Example:
+li.first ~ li {
+    background: gray;
+}
+
+Explanation: This selects EVERY <li> element that comes after an <li> with
+class="first", as long as they share the same parent. It does not select the
+first element itself.
+
+HTML Example:
+<li class="first">Rice</li>   <!-- NOT selected -->
+<li>Chicken</li>              <!-- Selected -->
+<li>Masala</li>               <!-- Selected -->
+<li>Oil</li>                  <!-- Selected -->
+
+When to use: When you want to style all following siblings of a particular
+element, like applying a theme to all items after a certain point.
+
+
+================================================================================
+3. PSEUDO CLASSES
+================================================================================
+
+DEFINITION: Pseudo classes select elements based on their STATE, POSITION, or
+dynamic conditions rather than just their name, class, or ID. They are denoted
+by a single colon (:).
+
+
+A) :hover
+---------
+DEFINITION: The :hover pseudo class selects an element when the user's mouse
+pointer is positioned over it. It is one of the most common interactive pseudo
+classes used for creating visual feedback.
+
+Syntax: element:hover { property: value; }
+
+Example:
+h1:hover {
+    color: red;
+}
+
+Explanation: When the mouse cursor moves over any <h1> element, its text color
+changes to red. When the mouse moves away, it returns to its original color.
+
+When to use: For button effects, link underlines, tooltips, and any interactive
+hover feedback.
+
+
+B) :first-child
+---------------
+DEFINITION: The :first-child pseudo class selects an element that is the FIRST
+child of its parent element. It checks the actual position - if the first child
+is not the specified element type, nothing is selected.
+
+Syntax: element:first-child { property: value; }
+
+Example:
+ul li:first-child {
+    color: red;
+}
+
+Explanation: This selects an <li> element ONLY if it is the very first child of
+its parent <ul>. If the first child is an <h1> or any other element, the selector
+will not match anything.
+
+When to use: For styling the first item in a list, removing top borders from
+the first element in a container, or special handling of the initial element.
+
+
+C) :last-child
+--------------
+DEFINITION: The :last-child pseudo class selects an element that is the LAST
+child of its parent element. It checks the actual position - if the last child
+is not the specified element type, nothing is selected.
+
+Syntax: element:last-child { property: value; }
+
+Example:
+ul li:last-child {
+    color: blue;
+}
+
+Explanation: This selects an <li> element ONLY if it is the very last child of
+its parent <ul>. If the last child is a different element, no match occurs.
+
+When to use: For styling the last item in a list, removing bottom borders,
+or adding special styling to the final element.
+
+
+D) :first-of-type
+-----------------
+DEFINITION: The :first-of-type pseudo class selects the FIRST occurrence of a
+specified element type within its parent, regardless of what other elements
+come before it. It ignores other element types when counting.
+
+Syntax: element:first-of-type { property: value; }
+
+Example:
+ul li:first-of-type {
+    color: yellow;
+}
+
+Explanation: This selects the first <li> element inside its parent, even if
+there are <h1> or other elements before it. It only cares about the position
+among other <li> elements.
+
+HTML Example:
+<ul>
+    <h1>Title</h1>    <!-- Ignored -->
+    <li>Bike</li>     <!-- This gets selected as first li -->
+    <li>Car</li>      <!-- Not selected -->
+</ul>
+
+When to use: When you want the first of a specific element type regardless of
+other content that might appear before it.
+
+
+E) :last-of-type
+----------------
+DEFINITION: The :last-of-type pseudo class selects the LAST occurrence of a
+specified element type within its parent, regardless of what other elements
+come after it. It ignores other element types when counting.
+
+Syntax: element:last-of-type { property: value; }
+
+Example:
+ul h1:last-of-type {
+    color: green;
+}
+
+Explanation: This selects the last <h1> element inside its parent, even if
+there are other elements like <li> or <p> after it. It only cares about the
+position among other <h1> elements.
+
+When to use: For styling the final instance of a particular element type
+within a container.
+
+
+F) :nth-child()
+---------------
+DEFINITION: The :nth-child() pseudo class selects elements based on their exact
+numeric position within their parent. It accepts formulas, keywords, or numbers
+to determine which children to select. This is one of the most powerful and
+frequently asked selectors in interviews.
+
+Syntax: element:nth-child(formula) { property: value; }
+
+Example:
+ul li:nth-child(2n) {
+    background: pink;
+}
+
+Explanation: This selects <li> elements that are at even positions (2, 4, 6, 8...)
+within their parent. "2n" means "every 2nd child" starting from position 2.
+
+Common formulas:
+:nth-child(odd)     - Selects odd-positioned elements (1, 3, 5, 7...)
+:nth-child(even)    - Selects even-positioned elements (2, 4, 6, 8...)
+:nth-child(3)       - Selects ONLY the 3rd child
+:nth-child(2n+1)    - Selects odd positions (same as odd)
+:nth-child(3n)      - Selects every 3rd child (3, 6, 9...)
+:nth-child(n+3)     - Selects all children from position 3 onward
+:nth-child(-n+3)    - Selects only the first 3 children
+
+When to use: For zebra-striping tables, styling every nth item in a grid,
+creating alternating layouts, or any pattern-based selection.
+
+
+G) :nth-of-type()
+-----------------
+DEFINITION: The :nth-of-type() pseudo class selects elements based on their
+position among siblings of the SAME ELEMENT TYPE. Unlike :nth-child, it ignores
+other element types and only counts elements that match the specified tag.
+
+Syntax: element:nth-of-type(formula) { property: value; }
+
+Example:
+li:nth-of-type(2) {
+    color: red;
+}
+
+Explanation: This selects the second <li> element within its parent, regardless
+of how many other elements (like <h1>, <p>, <div>) exist. It only counts other
+<li> elements.
+
+When to use: When you need to select specific instances of an element type
+while ignoring other element types that may appear in between.
+
+
+CRITICAL DIFFERENCE - :nth-child vs :nth-of-type:
+-------------------------------------------------
+:nth-child() = Checks the exact child position counting ALL element types
+:nth-of-type() = Checks position counting ONLY the same element type
+
+Example HTML:
+<div>
+    <h1>Title</h1>
+    <p>Paragraph</p>
+    <li>Item 1</li>   <!-- :nth-child(3) and :nth-of-type(1) -->
+    <li>Item 2</li>   <!-- :nth-child(4) and :nth-of-type(2) -->
+</div>
+
+For the first <li>:
+- :nth-child(3) matches because it's the 3rd child overall
+- :nth-of-type(1) matches because it's the 1st li
+
+For the second <li>:
+- :nth-child(4) matches because it's the 4th child overall
+- :nth-of-type(2) matches because it's the 2nd li
+
+
+================================================================================
+4. PSEUDO ELEMENTS
+================================================================================
+
+DEFINITION: Pseudo elements create virtual elements that don't exist in the HTML
+DOM. They allow styling of specific parts of an element or insert content before
+or after an element. They are denoted by double colons (::).
+
+
+A) ::before
+-----------
+DEFINITION: The ::before pseudo element creates a virtual element that becomes
+the FIRST child of the selected element. It inserts generated content before
+the element's actual content. The content property is REQUIRED for it to work.
+
+Syntax: element::before { content: "text"; property: value; }
+
+Example:
+h1::before {
+    content: "Start ";
+}
+
+Explanation: This inserts the word "Start " before the text content of every
+<h1> element. For example, if the <h1> says "Page Title", it will display as
+"Start Page Title".
+
+When to use: For adding decorative icons, prefix symbols, quotation marks,
+or any content that should appear before an element without changing HTML.
+
+
+B) ::after
+----------
+DEFINITION: The ::after pseudo element creates a virtual element that becomes
+the LAST child of the selected element. It inserts generated content after
+the element's actual content. The content property is REQUIRED for it to work.
+
+Syntax: element::after { content: "text"; property: value; }
+
+Example:
+h1::after {
+    content: " End";
+}
+
+Explanation: This inserts the word "End " after the text content of every
+<h1> element. For example, if the <h1> says "Page Title", it will display as
+"Page Title End".
+
+When to use: For adding suffixes, badges, tooltips, clearfix hacks, or any
+content that should appear after an element.
+
+
+C) ::first-letter
+-----------------
+DEFINITION: The ::first-letter pseudo element selects and styles ONLY the very
+first letter of a block-level element's content. It is commonly used for creating
+drop caps or initial letter styling.
+
+Syntax: element::first-letter { property: value; }
+
+Example:
+p::first-letter {
+    font-size: 30px;
+}
+
+Explanation: This makes the first letter of every paragraph 30 pixels in size,
+while the rest of the paragraph remains at its normal font size.
+
+When to use: For magazine-style drop caps, decorative first letters, or
+typographic emphasis on opening characters.
+
+
+D) ::first-line
+---------------
+DEFINITION: The ::first-line pseudo element selects and styles ONLY the first
+line of a block-level element's content. The first line length changes based
+on the viewport width, making it dynamic.
+
+Syntax: element::first-line { property: value; }
+
+Example:
+p::first-line {
+    color: red;
+}
+
+Explanation: This makes the first line of every paragraph appear red. As the
+browser window is resized, more or fewer words become part of the first line,
+and the styling adjusts automatically.
+
+When to use: For special formatting of opening lines, like bolding or changing
+color of the first line in articles or paragraphs.
+
+
+E) ::selection
+--------------
+DEFINITION: The ::selection pseudo element styles the portion of text that a
+user has highlighted or selected with their mouse or keyboard. It only supports
+a limited set of properties (color, background, cursor, outline, text-decoration,
+text-emphasis-color, text-shadow).
+
+Syntax: element::selection { property: value; }
+
+Example:
+p::selection {
+    background: yellow;
+    color: black;
+}
+
+Explanation: When a user selects any text within a <p> element by clicking and
+dragging, the selected text will appear with a yellow background and black text,
+instead of the default blue background.
+
+When to use: For customizing the look of selected text to match your website's
+color scheme and brand identity.
+
+
+================================================================================
+5. ATTRIBUTE SELECTORS
+================================================================================
+
+DEFINITION: Attribute selectors target elements based on their HTML attributes
+and attribute values. They provide powerful ways to select elements without
+adding classes or IDs.
+
+A) Exact Attribute Match [attribute="value"]
+--------------------------------------------
+DEFINITION: Selects elements that have the specified attribute with the exact
+specified value.
+
+Syntax: element[attribute="value"] { property: value; }
+
+Example:
+input[type="text"] {
+    border: 1px solid red;
+}
+
+Explanation: This selects all <input> elements where the type attribute is
+exactly equal to "text", and gives them a red border.
+
+B) Starts With [attribute^="value"]
+-----------------------------------
+DEFINITION: Selects elements whose attribute value STARTS WITH the specified text.
+The ^ symbol means "begins with".
+
+Syntax: element[attribute^="value"] { property: value; }
+
+Example:
+a[href^="https"] {
+    color: green;
+}
+
+Explanation: This selects all <a> (anchor/link) elements whose href attribute
+starts with "https", indicating a secure link, and colors them green.
+
+C) Ends With [attribute$="value"]
+---------------------------------
+DEFINITION: Selects elements whose attribute value ENDS WITH the specified text.
+The $ symbol means "ends with".
+
+Syntax: element[attribute$="value"] { property: value; }
+
+Example:
+img[src$=".png"] {
+    border: 2px solid blue;
+}
+
+Explanation: This selects all image elements whose src attribute ends with ".png",
+indicating PNG format images, and adds a blue border around them.
+
+D) Contains [attribute*="value"]
+--------------------------------
+DEFINITION: Selects elements whose attribute value CONTAINS the specified text
+anywhere within it. The * symbol means "contains".
+
+Syntax: element[attribute*="value"] { property: value; }
+
+Example:
+a[href*="google"] {
+    color: red;
+}
+
+Explanation: This selects all link elements whose href attribute contains the
+text "google" anywhere (like "google.com", "www.google.co.uk", "images.google.com"),
+and colors them red.
+
+
+================================================================================
+6. COMMON MISTAKE EXPLANATION
+================================================================================
+
+WRONG CODE:
+ul li :nth-of-type(2)
+
+EXPLANATION OF THE MISTAKE:
+The space between "li" and ":nth-of-type(2)" changes the meaning completely.
+With a space, it becomes a DESCENDANT selector, meaning:
+"Find all <li> elements, then inside each <li>, select the 2nd child of ANY type"
+
+CORRECT CODE:
+ul li:nth-of-type(2)
+
+EXPLANATION OF CORRECT CODE:
+Without a space, it becomes a PSEUDO CLASS selector directly on the <li>, meaning:
+"Find all <ul> elements, then select the 2nd <li> element inside each <ul>"
+
+
+================================================================================
+7. IMPORTANT HTML VALIDITY NOTE
+================================================================================
+
+INVALID HTML:
+<ul>
+    <h1>List of Bikes</h1>
+</ul>
+
+EXPLANATION OF WHY IT'S INVALID:
+The <ul> (unordered list) element can ONLY contain <li> (list item) elements as
+direct children. Putting an <h1> directly inside a <ul> violates HTML specification
+and can cause rendering issues and accessibility problems.
+
+CORRECT OPTION 1 (Heading inside list item):
+<ul>
+    <li><h1>List of Bikes</h1></li>
+    <li>Harley</li>
+    <li>Ducati</li>
+</ul>
+
+CORRECT OPTION 2 (Heading outside list):
+<h1>List of Bikes</h1>
+<ul>
+    <li>Harley</li>
+    <li>Ducati</li>
+</ul>
+
+
+================================================================================
+8. BEST PRACTICE NOTES
+================================================================================
+
+1. Use classes more than tag selectors for better maintainability and reusability
+2. Avoid invalid nesting (like block elements inside inline elements, or wrong
+   children for ul/ol/table)
+3. Use :nth-child carefully - remember it counts ALL children, not just same type
+4. Prefer semantic HTML (meaningful tags) over presentational tags
+5. Use pseudo elements for UI decorations instead of adding extra empty divs
+6. Use combinators for structure-based styling but avoid overly deep selectors
+   (more than 3 levels deep) for performance
+
+
+================================================================================
+9. INTERVIEW IMPORTANT DIFFERENCES
+================================================================================
+
+DIFFERENCE 1: :first-child vs :first-of-type
+---------------------------------------------
+:first-child = Checks actual first child position (fails if different element)
+:first-of-type = Checks first of that element type (ignores other elements)
+
+Example HTML:
+<ul>
+    <h1>Title</h1>
+    <li>Bike</li>
+</ul>
+
+li:first-child   -> Does NOT work (h1 is first child, not li)
+li:first-of-type -> WORKS (this is the first li element)
+
+DIFFERENCE 2: :nth-child vs :nth-of-type
+-----------------------------------------
+:nth-child() = Counts ALL children regardless of element type
+:nth-of-type() = Counts only children of the same element type
+
+DIFFERENCE 3: Space vs > (Descendant vs Child)
+-----------------------------------------------
+Space (A B) = Selects ALL B that are descendants of A (any depth)
+> (A > B) = Selects ONLY direct children B of A (immediate nesting)
+
+DIFFERENCE 4: + vs ~ (Adjacent vs General Sibling)
+---------------------------------------------------
++ (A + B) = Selects ONLY the immediate next sibling B after A
+~ (A ~ B) = Selects ALL siblings B that come after A
+
+DIFFERENCE 5: : vs :: (Pseudo Class vs Pseudo Element)
+-------------------------------------------------------
+: = Pseudo class - selects based on STATE or POSITION (e.g., :hover, :first-child)
+:: = Pseudo element - creates VIRTUAL elements (e.g., ::before, ::first-letter)
+
+
+================================================================================
+10. MOST IMPORTANT CSS SELECTORS QUICK REFERENCE
+================================================================================
+
+BASIC SELECTORS:
+----------------
+*              - Universal selector - selects everything
+tag            - Element selector - selects by tag name
+.class         - Class selector - selects by class attribute
+#id            - ID selector - selects by unique id attribute
+
+COMBINATORS:
+------------
+A B            - Descendant - selects B inside A at any depth
+A > B          - Child - selects B that are direct children of A
+A + B          - Adjacent sibling - selects B immediately after A
+A ~ B          - General sibling - selects all B siblings after A
+
+PSEUDO CLASSES:
+---------------
+:hover         - When mouse is over the element
+:focus         - When element has keyboard focus
+:active        - When element is being activated (clicked)
+:first-child   - First child of parent
+:last-child    - Last child of parent
+:first-of-type - First occurrence of element type
+:last-of-type  - Last occurrence of element type
+:nth-child()   - Nth child counting all elements
+:nth-of-type() - Nth child counting same element type only
+:not()         - Negation - selects elements that do NOT match
+:empty         - Selects elements with no children or text
+
+PSEUDO ELEMENTS:
+----------------
+::before       - Inserts content before element's content
+::after        - Inserts content after element's content
+::first-letter - Styles first letter of text
+::first-line   - Styles first line of text
+::selection    - Styles user-selected text
+::placeholder  - Styles input placeholder text
+
+ATTRIBUTE SELECTORS:
+--------------------
+[attr]         - Has attribute
+[attr="value"] - Exact match
+[attr^="val"]  - Starts with value
+[attr$="val"]  - Ends with value
+[attr*="val"]  - Contains value
+[attr~="val"]  - Contains word (space-separated)
+[attr|="val"]  - Starts with value followed by hyphen
+
+
+================================================================================
+DAILY PRACTICE TIPS FOR INTERVIEWS
+================================================================================
+
+Practice these 3 categories daily:
+
+1. nth-child variations
+   - nth-child(odd), nth-child(even)
+   - nth-child(2n+1), nth-child(3n)
+   - nth-child(n+3), nth-child(-n+3)
+   - Understand difference between nth-child and nth-of-type
+
+2. Sibling selectors
+   - Adjacent sibling (+) for immediate next element
+   - General sibling (~) for all following elements
+   - Create hover effects that affect siblings
+
+3. Pseudo elements
+   - ::before and ::after with content property
+   - ::first-letter for drop caps
+   - ::selection for custom text highlighting
+
+These are the most asked selectors in frontend interviews.
+
+================================================================================
+END OF NOTES
+================================================================================

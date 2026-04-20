@@ -1,0 +1,302 @@
+==============================
+📘 JavaScript Operators
+==============================
+
+✅ What is an Operator?
+
+An operator is a symbol that performs an operation on values.
+
+Example:
+let total = 10 + 5;
+
+Here:
++ → operator
+10, 5 → operands
+result → 15
+
+
+==============================
+🔥 Types of Operators
+==============================
+
+JavaScript operators are mainly:
+
+1) Arithmetic Operators
+2) Assignment Operators
+3) Comparison Operators
+4) Logical Operators
+5) Increment / Decrement
+6) Ternary Operator
+7) Type Operator
+
+
+==============================
+1️⃣ Arithmetic Operators
+==============================
+
+Used for mathematical calculations.
+
++   → Addition
+-   → Subtraction
+*   → Multiplication
+/   → Division
+%   → Modulus (remainder)
+**  → Power
+
+Examples:
+10 + 5
+10 - 5
+10 * 5
+10 / 5
+10 % 3
+2 ** 3
+
+Example Code:
+let a = 10;
+let b = 3;
+
+console.log(a + b); // 13
+console.log(a - b); // 7
+console.log(a * b); // 30
+console.log(a / b); // 3.33
+console.log(a % b); // 1
+console.log(2 ** 3); // 8
+
+
+🎯 Important Use of %
+
+let num = 10;
+console.log(num % 2 === 0); // true
+
+Used for:
+- even / odd
+- cyclic turns
+- pagination
+- round robin logic
+
+
+==============================
+2️⃣ Assignment Operators
+==============================
+
+Used to assign or update values.
+
+=   → assign
++=  → add and assign
+-=  → subtract and assign
+*=  → multiply and assign
+/=  → divide and assign
+
+Example:
+let score = 10;
+score += 5;
+
+console.log(score); // 15
+
+
+==============================
+3️⃣ Comparison Operators
+==============================
+
+Used to compare values.
+
+Always returns:
+true
+false
+
+==   → loose equality
+===  → strict equality
+!=   → loose not equal
+!==  → strict not equal
+>    → greater than
+<    → less than
+>=   → greater than or equal
+<=   → less than or equal
+
+
+⚠️ == vs ===
+
+This is one of the most important interview topics.
+
+== Loose Equality
+Checks only value.
+
+Example:
+5 == "5" // true
+
+Because JavaScript converts type automatically.
+
+
+=== Strict Equality
+Checks:
+- value
+- data type
+
+Example:
+5 === "5" // false
+
+✅ Best Practice:
+Always use === in real projects
+Because it avoids hidden bugs.
+
+
+==============================
+4️⃣ Logical Operators
+==============================
+
+Used to combine multiple conditions.
+
+&&  → AND
+||  → OR
+!   → NOT
+
+
+✅ AND &&
+Both conditions must be true.
+
+Example:
+let age = 20;
+let hasID = true;
+
+console.log(age >= 18 && hasID); // true
+
+
+✅ OR ||
+At least one condition must be true.
+
+Example:
+let isAdmin = false;
+let isEditor = true;
+
+console.log(isAdmin || isEditor); // true
+
+
+✅ NOT !
+Reverses boolean value.
+
+Example:
+let isLoggedIn = false;
+console.log(!isLoggedIn); // true
+
+
+==============================
+5️⃣ Increment / Decrement
+==============================
+
+Used for counters and loops.
+
+Increment:
+let x = 5;
+x++;
+console.log(x); // 6
+
+Decrement:
+let y = 5;
+y--;
+console.log(y); // 4
+
+
+⚠️ Prefix vs Postfix
+
+Postfix:
+let x = 5;
+console.log(x++); // 5
+console.log(x);   // 6
+
+Prefix:
+let y = 5;
+console.log(++y); // 6
+
+
+✅ Rule
+x++ → use first, then increase
+++x → increase first, then use
+
+
+==============================
+6️⃣ Ternary Operator
+==============================
+
+Short form of if-else.
+
+Syntax:
+condition ? trueValue : falseValue;
+
+Example:
+let age = 20;
+let result = age >= 18 ? "Adult" : "Minor";
+
+console.log(result);
+
+
+==============================
+7️⃣ Type Operator
+==============================
+
+typeof
+
+Used to check data type.
+
+Examples:
+typeof "Hello"; // string
+typeof 25;      // number
+typeof true;    // boolean
+
+
+==============================
+🎯 Operator Precedence
+==============================
+
+JavaScript follows precedence like BODMAS.
+
+Example:
+console.log(2 + 3 * 4);
+
+Output:
+14
+
+Because multiplication runs first.
+
+
+==============================
+🧠 Real Project Use Cases
+==============================
+
+1) Even / Odd
+let num = 10;
+console.log(num % 2 === 0);
+
+2) Login Check
+let isLoggedIn = true;
+let isVerified = true;
+
+if (isLoggedIn && isVerified) {
+  console.log("Access granted");
+}
+
+3) Discount
+let price = 1000;
+price -= 100;
+
+
+==============================
+💼 Important Interview Questions
+==============================
+
+Q1. Difference between == and ===
+Answer:
+==  → compares value only
+=== → compares value + type
+
+Q2. What is modulus % used for?
+Answer:
+Used for remainder-based logic.
+
+Q3. Difference between x++ and ++x
+Answer:
+x++ → postfix
+++x → prefix
+
+Q4. Why ternary operator?
+Answer:
+Cleaner short conditional logic.

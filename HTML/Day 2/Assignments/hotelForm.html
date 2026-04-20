@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+</head>
+<body>
+
+    <h1 align="center">Hotel Booking Form</h1>
+
+    <form>
+        <table border="1" align="center" cellpadding="10">
+
+            <tr>
+                <td>Full Name</td>
+                <td><input type="text" name="name" required></td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td>
+                    <input type="radio" name="gender" value="male"> Male
+                    <input type="radio" name="gender" value="female"> Female
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" required></td>
+            </tr>
+
+            <tr>
+                <td>Phone Number</td>
+                <td><input type="tel" name="phone" required></td>
+            </tr>
+
+            <tr>
+                <td>City</td>
+                <td>
+                    <select name="city">
+                        <optgroup label="Punjab Cities">
+                            <option value="Jalandhar">Jalandhar</option>
+                            <option value="Phagwara">Phagwara</option>
+                            <option value="Ludhiana">Ludhiana</option>
+                            <option value="Amritsar">Amritsar</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+               
+            <tr>
+                <td>Check-in Date</td>
+                <td><input type="date" name="checkin" required></td>
+            </tr>
+
+            <tr>
+                <td>Check-out Date</td>
+                <td><input type="date" name="checkout" required></td>
+            </tr>
+
+            <tr>
+                <td>Room Type</td>
+                <td>
+                    <select name="room">
+                        <option value="single">Single</option>
+                        <option value="double">Double</option>
+                        <option value="suite">Suite</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Number of Guests</td>
+                <td><input type="number" name="guests" min="1" max="10"></td>
+            </tr>
+            <tr>
+                <td>Arrive Date and Time</td>
+                <td><input type="datetime-local" name="arrive" required></td>
+            </tr>
+
+            <tr>
+                <td>Facilities</td>
+                <td>
+                    <input type="checkbox" name="facility" value="wifi"> WiFi <br>
+                    <input type="checkbox" name="facility" value="breakfast"> Breakfast <br>
+                    <input type="checkbox" name="facility" value="parking"> Parking
+                </td>
+            </tr>
+
+            <tr>
+                <td>Special Requests</td>
+                <td>
+                    <textarea name="requests" rows="4" cols="30"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Book Now">
+                    <input type="reset" value="Clear">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>
